@@ -37,19 +37,61 @@ Diff = A ⊕ B ⊕ Bin
 Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
+![full adder](https://github.com/23010890/FULL_ADDER_SUBTRACTOR/assets/154983666/58db3be7-8a17-468c-aa8e-c62a47d565f9)
+![full subtractor truth table](https://github.com/23010890/FULL_ADDER_SUBTRACTOR/assets/154983666/5dc72b12-1405-4a45-b2b7-e792aa05d3b6)
+
+
 
 **Procedure**
-
-Write the detailed procedure here
-
+```
+1.Use module projname(input,output) to start the Verilog programming.
+ 2.Assign inputs and outputs using the word input and output respectively.
+ 3.Use defined keywords like wire,assign and required logic gates to represent the boolean expression.
+ 4.Use each output to represent one for difference and the other for borrow. 5.End the verilog program using keyword endmodule
+```
 **Program:**
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
+Developed by: DHARSHINI S
+RegisterNumber:212223110010
 */
+```
+module fulladd(df, bo, a, b, bin);
 
+output df;
+output bo;
+input a;
+input b;
+input bin;
+      wire w1,w2,w3;
+      assign w1=a^b;
+      assign w2=(~a&b);
+      assign w3=(~w1&bin);
+      assign df=w1^bin;
+      assign bo=w2/w3;
+endmodule/*
+
+/* module fullsub(diff, bout, a, b, bin);
+output diff,bout;
+input a,b,bin;
+// Internal nets
+wire dl, bl, b2;
+// Instantiate logic gate primitives
+xor (d1, a, b);
+and (b1, ~a, b);
+xor (diff, d1, bin);
+and (b2, ~dl, bin);
+or (bout, b2, b1);
+endmodule */
+```
 **RTL Schematic**
+![full adder circuit](https://github.com/23010890/FULL_ADDER_SUBTRACTOR/assets/154983666/e9449b8f-7071-4191-913d-c896e575df7b)
+![full subtractor circuit](https://github.com/23010890/FULL_ADDER_SUBTRACTOR/assets/154983666/d0cdf0ec-4278-45f8-b324-e6e6fa778486)
 
 **Output Timing Waveform**
+![full adder timing](https://github.com/23010890/FULL_ADDER_SUBTRACTOR/assets/154983666/ad30406a-4925-47ae-a481-e6236525629f)
+![full subtractor timing](https://github.com/23010890/FULL_ADDER_SUBTRACTOR/assets/154983666/ef5c8d54-14fe-4051-b09a-ac40c0403a61)
+
 
 **Result:**
 
